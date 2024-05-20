@@ -388,7 +388,4 @@ void keyPressed(){
     PacManLives = 3;
     resetBoard();
   }
-  if(menu == true){
-    
-  }
 }// end player input
