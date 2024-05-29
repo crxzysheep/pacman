@@ -69,6 +69,7 @@ void draw() {
       text("GAME", 90, 130);
       text("OVER", 90, 210);
       textSize(25);
+      text("Score: "+ score, 60, 280);
       text("Press e on your keyboard to restart", 60, 250);
     }
   }
@@ -157,7 +158,12 @@ class Ghost{
     GhostY = y;
     GhostColor = c;
   }// end ghost
-  
+
+  void resetGhost(){
+    GhostX = 180;
+    GhostY = 160;
+  }
+
   void update(){
     int GhostRow = GhostY/20;
     int GhostCol = GhostX/20;
@@ -385,7 +391,11 @@ void keyPressed(){
     PacPosX = 190;
     PacPosY = 270;
     PacSpeed = 3;
+    score = 0;
     PacManLives = 3;
+    for(int i = 0; i < ghosts.size(); i++){
+      ghosts.get(i).resetGhost();
+    }
     resetBoard();
   }
 }// end player input
